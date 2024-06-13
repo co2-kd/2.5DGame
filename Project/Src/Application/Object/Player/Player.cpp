@@ -43,22 +43,22 @@ void Player::Update()
 
 	if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
 	{
-		m_gravity += 0.01f;
-		m_thrust = 0.003f;
-		m_thrustoffspeed = m_speed;
-		m_thrustoffspeed -= m_thrust;
-		if (m_thrustoffspeed <= 0.0f)
-		{
-			m_thrustoffspeed = 0.0f;
-		}
-		m_inertia.Normalize();
-		m_dir = m_inertia;
-		m_speed = m_thrustoffspeed;
+		//m_gravity += 0.01f;
+		//m_thrust = 0.003f;
+		//m_thrustoffspeed = m_speed;
+		//m_thrustoffspeed -= m_thrust;
+		//if (m_thrustoffspeed <= 0.0f)
+		//{
+		//	m_thrustoffspeed = 0.0f;
+		//}
+		//m_inertia.Normalize();
+		//m_dir = m_inertia;
+		//m_speed = m_thrustoffspeed;
 		
 	}
 	else
 	{
-		if (m_thrustoffspeed > 0)
+		/*if (m_thrustoffspeed > 0)
 		{
 			m_thrust = 0.3f;
 			m_thrustoffspeed -= m_thrust;
@@ -89,7 +89,7 @@ void Player::Update()
 			m_modeldir = GetMatrix().Backward();
 			m_dir = m_modeldir;
 			m_speed = m_thrustspeed;
-		}
+		}*/
 
 		
 		//if (m_thrustspeed < oldspeed)
