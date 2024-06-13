@@ -22,6 +22,7 @@ private:
 	float m_thrustspeed;
 	float m_thrustoffspeed;
 	float m_thrustMax;
+	float m_thrustMin;
 
 	Math::Vector3 m_inertia;
 	Math::Vector3 m_modeldir;

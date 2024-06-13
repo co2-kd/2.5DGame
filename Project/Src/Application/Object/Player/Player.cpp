@@ -43,42 +43,68 @@ void Player::Update()
 
 	if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
 	{
-		m_gravity += 0.001f;
-		m_thrust = 0;
-		m_thrustspeed -= 0.005f;
-		if (m_thrustspeed <= 0.0f)
+		m_gravity += 0.01f;
+		m_thrust = 0.003f;
+		m_thrustoffspeed = m_speed;
+		m_thrustoffspeed -= m_thrust;
+		if (m_thrustoffspeed <= 0.0f)
 		{
-			m_thrustspeed = 0.0f;
+			m_thrustoffspeed = 0.0f;
 		}
+		m_inertia.Normalize();
 		m_dir = m_inertia;
-		m_speed = m_thrustspeed;
+		m_speed = m_thrustoffspeed;
+		
 	}
 	else
 	{
-		m_thrust += 0.1f;
-		m_thrustspeed = m_thrust;
-		if (m_thrustspeed >= m_thrustMax)
+		if (m_thrustoffspeed > 0)
 		{
-			m_thrustspeed = m_thrustMax;
+			m_thrust = 0.3f;
+			m_thrustoffspeed -= m_thrust;
+			m_thrustspeed = m_speed;
+			m_inertia.Normalize();
+			m_dir = m_inertia;
+			m_speed = m_thrustoffspeed;
 			m_gravity -= 0.01f;
 			if (m_gravity <= 0)
 			{
 				m_gravity = 0;
 			}
-		}
-		if (m_thrustspeed < oldspeed)
-		{
-			m_inertia.Normalize();
-			m_dir = m_inertia;
-			m_speed = oldspeed - m_thrustspeed;
+
 		}
 		else
 		{
-			//モデルが向いている方向のベクトル
+			m_thrust = 0.5f;
+			m_thrustspeed += m_thrust;
+			if (m_thrustspeed >= m_thrustMax)
+			{
+				m_thrustspeed = m_thrustMax;
+				m_gravity -= 0.05f;
+				if (m_gravity <= 0)
+				{
+					m_gravity = 0;
+				}
+			}
 			m_modeldir = GetMatrix().Backward();
 			m_dir = m_modeldir;
 			m_speed = m_thrustspeed;
 		}
+
+		
+		//if (m_thrustspeed < oldspeed)
+		//{
+		//	m_inertia.Normalize();
+		//	m_dir = m_inertia;
+		//	m_speed = oldspeed - m_thrustspeed;
+		//}
+		//else
+		//{
+		//	//モデルが向いている方向のベクトル
+		//	m_modeldir = GetMatrix().Backward();
+		//	m_dir = m_modeldir;
+		//	m_speed = m_thrustspeed;
+		//}
 	}
 
 
@@ -165,10 +191,12 @@ void Player::Init()
 	m_thrust = 5.0f;
 	m_thrustspeed = 5.0f;
 	m_thrustMax = 5.0f;
+	m_thrustMin = -5.0f;
 	m_speed = 0.0f;
 
 	m_anime = 0;
 
+	m_modeldir = GetMatrix().Backward();
 
 	m_gravity = 0;
 
