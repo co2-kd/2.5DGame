@@ -43,55 +43,52 @@ void Player::Update()
 
 	if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
 	{
-		//m_gravity += 0.01f;
-		//m_thrust = 0.003f;
+		m_gravity += 0.01f;
+		m_thrust = 0.0f;
 		//m_thrustoffspeed = m_speed;
-		//m_thrustoffspeed -= m_thrust;
-		//if (m_thrustoffspeed <= 0.0f)
-		//{
-		//	m_thrustoffspeed = 0.0f;
-		//}
-		//m_inertia.Normalize();
-		//m_dir = m_inertia;
+		m_thrustspeed -= 0.003f;
+		if (m_thrustoffspeed <= 0.0f)
+		{
+			m_thrustoffspeed = 0.0f;
+		}
+		m_inertia.Normalize();
+		m_dir = m_inertia;
 		//m_speed = m_thrustoffspeed;
 		
 	}
 	else
 	{
-		/*if (m_thrustoffspeed > 0)
-		{
-			m_thrust = 0.3f;
-			m_thrustoffspeed -= m_thrust;
-			m_thrustspeed = m_speed;
-			m_inertia.Normalize();
-			m_dir = m_inertia;
-			m_speed = m_thrustoffspeed;
-			m_gravity -= 0.01f;
-			if (m_gravity <= 0)
-			{
-				m_gravity = 0;
-			}
-
-		}
-		else
-		{
-			m_thrust = 0.5f;
-			m_thrustspeed += m_thrust;
-			if (m_thrustspeed >= m_thrustMax)
-			{
-				m_thrustspeed = m_thrustMax;
-				m_gravity -= 0.05f;
-				if (m_gravity <= 0)
-				{
-					m_gravity = 0;
-				}
-			}
-			m_modeldir = GetMatrix().Backward();
-			m_dir = m_modeldir;
-			m_speed = m_thrustspeed;
-		}*/
-
-		
+		//if (m_thrustoffspeed > 0)
+		//{
+		//	m_thrust = 0.3f;
+		//	m_thrustoffspeed -= m_thrust;
+		//	m_thrustspeed = m_speed;
+		//	m_inertia.Normalize();
+		//	m_dir = m_inertia;
+		//	m_speed = m_thrustoffspeed;
+		//	m_gravity -= 0.01f;
+		//	if (m_gravity <= 0)
+		//	{
+		//		m_gravity = 0;
+		//	}
+		//}
+		//else
+		//{
+		//	m_thrust = 0.5f;
+		//	m_thrustspeed += m_thrust;
+		//	if (m_thrustspeed >= m_thrustMax)
+		//	{
+		//		m_thrustspeed = m_thrustMax;
+		//		m_gravity -= 0.05f;
+		//		if (m_gravity <= 0)
+		//		{
+		//			m_gravity = 0;
+		//		}
+		//	}
+		//	m_modeldir = GetMatrix().Backward();
+		//	m_dir = m_modeldir;
+		//	m_speed = m_thrustspeed;
+		//}
 		//if (m_thrustspeed < oldspeed)
 		//{
 		//	m_inertia.Normalize();
@@ -106,8 +103,6 @@ void Player::Update()
 		//	m_speed = m_thrustspeed;
 		//}
 	}
-
-
 
 	//if (m_thrustspeed < oldspeed)
 	//{
