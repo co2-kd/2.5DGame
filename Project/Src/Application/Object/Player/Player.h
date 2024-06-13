@@ -7,6 +7,7 @@ public:
 	~Player()override {}
 
 	void Update()override;
+	void PostUpdate()override;
 	void DrawLit()override;
 	void Init()override;
 private:
@@ -15,9 +16,27 @@ private:
 
 	Math::Vector3 m_pos;
 
-	float m_anime = 0;
+	Math::Vector3 m_dir;
 
-	float m_dir = 1;
+	float m_thrust;
+	float m_thrustspeed;
+	float m_thrustoffspeed;
+	float m_thrustMax;
 
-	float m_gravity = 0;
+	Math::Vector3 m_inertia;
+	Math::Vector3 m_modeldir;
+
+	float m_speed;
+
+	float m_anime;
+
+	float m_scale;
+
+	float m_gravity;
+
+	float m_rotateX;
+	float m_rotateY;
+	float m_rotateZ;
+
+	float m_deg;
 };

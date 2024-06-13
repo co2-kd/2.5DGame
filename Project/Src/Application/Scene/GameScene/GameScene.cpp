@@ -17,17 +17,21 @@ void GameScene::Event()
 	}
 
 	Math::Matrix transMat;
-	Math::Vector3 cameraPos = { 0.0f,3.0f,-20.0f };
+	Math::Vector3 cameraPos = { 0.0f,50.0f,-200.0f };
 	transMat = Math::Matrix::CreateTranslation(cameraPos += playerPos);
-	m_camera->SetCameraMatrix(transMat);
+	Math::Matrix rotateMat;
+	rotateMat = Math::Matrix::CreateRotationX(DirectX::XMConvertToRadians(15));
+	Math::Matrix cameraMat;
+	cameraMat = rotateMat * transMat;
+	m_camera->SetCameraMatrix(cameraMat);
 }
 
 void GameScene::Init()
 {
 	//カメラの実体化
 	m_camera = std::make_unique<KdCamera>();
-	//平行光（ディレクショナルライト）								↓方向		↓色
-	KdShaderManager::Instance().WorkAmbientController().SetDirLight({ 0,-1,0.1f }, { 2,2,2 });
+	////平行光（ディレクショナルライト）								↓方向		↓色
+	//KdShaderManager::Instance().WorkAmbientController().SetDirLight({ 0,-1,0.1f }, { 2,2,2 });
 
 	////画面全体が暗いときに触る
 	////環境光(アンビエントライト)※デフォルト値は0.3					    				 ↓↓↓↓

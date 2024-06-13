@@ -15,25 +15,22 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cube",
+			"name":"\u5186\u67f1",
 			"scale":[
-				30.040367126464844,
-				7.186641216278076,
-				1.1949899196624756
+				8.859820365905762,
+				8.859820365905762,
+				8.859820365905762
 			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"Material",
+			"name":"\u30de\u30c6\u30ea\u30a2\u30eb",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0,
-					0.06322911381721497,
-					0.49960005283355713,
-					1
-				],
+				"baseColorTexture":{
+					"index":0
+				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
 			}
@@ -41,7 +38,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cube",
+			"name":"\u5186\u67f1",
 			"primitives":[
 				{
 					"attributes":{
@@ -55,72 +52,91 @@
 			]
 		}
 	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/jpeg",
+			"name":"images",
+			"uri":"images.jpg"
+		}
+	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":24,
+			"count":260,
 			"max":[
 				1,
 				1,
-				15.582712173461914
+				1
 			],
 			"min":[
 				-1,
 				-1,
-				-15.582712173461914
+				-1
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":24,
+			"count":260,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":24,
+			"count":260,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":36,
+			"count":768,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":288,
+			"byteLength":3120,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":288,
-			"byteOffset":288,
+			"byteLength":3120,
+			"byteOffset":3120,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":192,
-			"byteOffset":576,
+			"byteLength":2080,
+			"byteOffset":6240,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":72,
-			"byteOffset":768,
+			"byteLength":1536,
+			"byteOffset":8320,
 			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":840,
-			"uri":"Ocean.bin"
+			"byteLength":9856,
+			"uri":"sky.bin"
 		}
 	]
 }
