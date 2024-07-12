@@ -13,4 +13,9 @@ private :
 
 	void Event() override;
 	void Init() override;
+
+	KdTexture Tex;
+	Math::Rectangle Rect;
+	Math::Color Color;
+
 };

@@ -3,6 +3,7 @@
 #include "BaseScene/BaseScene.h"
 #include "GameScene/GameScene.h"
 #include "TitleScene/TitleScene.h"
+#include "ResultScene/ResultScene.h"
 
 void SceneManager::PreUpdate()
 {
@@ -55,6 +56,11 @@ void SceneManager::AddObject(const std::shared_ptr<KdGameObject>& _obj)
 	m_currentScene->AddObject(_obj);
 }
 
+void SceneManager::ImguiUpdate()
+{
+	m_currentScene->ImguiUpdate();
+}
+
 void SceneManager::ChangeScene(SceneType _sceneType)
 {
 	// 次のシーンを作成し、現在のシーンにする
@@ -65,6 +71,10 @@ void SceneManager::ChangeScene(SceneType _sceneType)
 		break;
 	case SceneType::Game:
 		m_currentScene = std::make_shared<GameScene>();
+		break;
+
+	case SceneType::Result:
+		m_currentScene = std::make_shared<ResultScene>();
 		break;
 	}
 

@@ -82,6 +82,24 @@
     <Filter Include="Src\Application\Object\Ocean">
       <UniqueIdentifier>{b23b3162-cd2a-437c-8189-defc859023cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\Mousehit">
+      <UniqueIdentifier>{207e4cab-a25e-4729-a29a-b2d3dd429322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Enemy">
+      <UniqueIdentifier>{0531f3df-5a00-4fd0-a46f-6a4266509dc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Cloud">
+      <UniqueIdentifier>{501ebf70-7f20-4754-8e40-65e1a87792cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Cloud2">
+      <UniqueIdentifier>{f7384eb9-ad37-4598-8828-c5d37b81c03c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\P_Bullet">
+      <UniqueIdentifier>{27282855-83f2-4d73-8c38-36ceba70d414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Scene\ResultScene">
+      <UniqueIdentifier>{be269c9c-c32f-4bbf-8a50-d1a51733b18e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -258,6 +276,24 @@
     <ClInclude Include="Src\Application\Object\Ocean\Ocean.h">
       <Filter>Src\Application\Object\Ocean</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Mousehit\Mousehit.h">
+      <Filter>Src\Application\Object\Mousehit</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Enemy\Enemy.h">
+      <Filter>Src\Application\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\cloud\Cloud.h">
+      <Filter>Src\Application\Object\Cloud</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\cloud2\Cloud2.h">
+      <Filter>Src\Application\Object\Cloud2</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\P_Bullet\P_Bullet.h">
+      <Filter>Src\Application\Object\P_Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h">
+      <Filter>Src\Application\Scene\ResultScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -406,6 +442,24 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Ocean\Ocean.cpp">
       <Filter>Src\Application\Object\Ocean</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Mousehit\Mousehit.cpp">
+      <Filter>Src\Application\Object\Mousehit</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Enemy\Enemy.cpp">
+      <Filter>Src\Application\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\cloud\Cloud.cpp">
+      <Filter>Src\Application\Object\Cloud</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\cloud2\Cloud2.cpp">
+      <Filter>Src\Application\Object\Cloud2</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\P_Bullet\P_Bullet.cpp">
+      <Filter>Src\Application\Object\P_Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp">
+      <Filter>Src\Application\Scene\ResultScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

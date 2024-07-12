@@ -20,6 +20,8 @@ public:
 
 	int GetNowFPS() const { return m_fpsController.m_nowfps; }
 	int GetMaxFPS() const { return m_fpsController.m_maxFps; }
+	int GetEnemyCnt() const { return m_enemyCnt; }
+	void EnemyCnt();
 
 private:
 
@@ -42,6 +44,8 @@ private:
 	// アプリケーション解放
 	void Release();
 
+
+
 	//imgui
 	void ImGuiProcess();
 
@@ -60,6 +64,8 @@ private:
 	Math::Rectangle Rect;
 	Math::Color Color;
 	float angle = 0.0f;
+
+	int m_enemyCnt = 0;
 
 //=====================================================
 // シングルトンパターン

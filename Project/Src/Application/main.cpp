@@ -2,6 +2,7 @@
 
 #include "Scene/SceneManager.h"
 
+
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 // エントリーポイント
 // アプリケーションはこの関数から進行する
@@ -117,15 +118,6 @@ void Application::PreDraw()
 void Application::Draw()
 {
 	SceneManager::Instance().Draw();
-	//円形描画テスト用（消す）
-	{
-		Tex.Load("Asset/Textures/test.png");
-		Mat = Math::Matrix::CreateTranslation(0, 0, 0);
-		Color = { 1,1,1,1 };
-		Rect = { 0,0,128,128 };
-		KdShaderManager::Instance().m_spriteShader.SetMatrix(Mat);
-		KdShaderManager::Instance().m_spriteShader.DrawTexAnime(&Tex, 500, -300, angle, &Rect, &Color);
-	}
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -146,6 +138,15 @@ void Application::PostDraw()
 void Application::DrawSprite()
 {
 	SceneManager::Instance().DrawSprite();
+	//円形描画テスト用（消す）
+	/*{
+		Tex.Load("Asset/Textures/test.png");
+		Mat = Math::Matrix::CreateTranslation(0, 0, 0);
+		Color = { 1,1,1,1 };
+		Rect = { 0,0,128,128 };
+		KdShaderManager::Instance().m_spriteShader.SetMatrix(Mat);
+		KdShaderManager::Instance().m_spriteShader.DrawTexAnime(&Tex, 500, -300, angle, &Rect, &Color);
+	}*/
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -156,7 +157,7 @@ bool Application::Init(int w, int h)
 	//===================================================================
 	// ウィンドウ作成
 	//===================================================================
-	if (m_window.Create(w, h, "3D GameProgramming", "Window") == false) {
+	if (m_window.Create(w, h, "タイトル", "Window") == false) {
 		MessageBoxA(nullptr, "ウィンドウ作成に失敗", "エラー", MB_OK);
 		return false;
 	}
@@ -330,6 +331,8 @@ void Application::Execute()
 		//=========================================
 
 		m_fpsController.Update();
+		std::string titleBer = "balloon shooting" + std::to_string(m_fpsController.m_nowfps) + "fps";
+		SetWindowTextA(m_window.GetWndHandle(), titleBer.c_str());
 	}
 
 	//===================================================================
@@ -358,6 +361,11 @@ void Application::Release()
 	m_window.Release();
 }
 
+void Application::EnemyCnt()
+{
+	m_enemyCnt++;
+}
+
 void Application::ImGuiProcess()
 {
 	//return;
@@ -368,13 +376,14 @@ void Application::ImGuiProcess()
 	ImGui::NewFrame();
 
 	// ImGui Demo ウィンドウ表示 ※すごく参考になるウィンドウです。imgui_demo.cpp参照。
-	//ImGui::ShowDemoWindow(nullptr);
+	ImGui::ShowDemoWindow(nullptr);
 
 	// デバッグウィンドウ
 	if (ImGui::Begin("Debug Window"))
 	{
+		SceneManager::Instance().ImguiUpdate();
 		// FPS
-		ImGui::Text("FPS : %d", m_fpsController.m_nowfps);
+		ImGui::Text("Cnt : %d", Application::Instance().GetEnemyCnt());
 		ImGui::Button((const char*)u8"日本語表示テスト");
 		ImGui::SliderFloat((const char*)u8"画像角度:%.0f", &angle, 0, 360);
 	}

@@ -1,18 +1,21 @@
 ﻿#pragma once
 
-//オブジェクトの種類
-enum class ObjectType
-{
-	Player,
-	Enemy,
-	Stage
-};
 
 // ゲーム上に存在するすべてのオブジェクトの基底となるクラス
 class KdGameObject : public std::enable_shared_from_this<KdGameObject>
 {
 public:
+	//オブジェクトの種類
+	enum class ObjectType
+	{
+		None,
+		Player,
+		Enemy,
+		P_Bullet,
+		Mousehit,
+		Ocean,
 
+	};
 	// どのような描画を行うのかを設定するTypeID：Bitフラグで複数指定可能
 	enum
 	{
@@ -74,6 +77,11 @@ public:
 	bool Intersects(const KdCollider::BoxInfo& targetBox, std::list<KdCollider::CollisionResult>* pResults);
 	bool Intersects(const KdCollider::RayInfo& targetShape, std::list<KdCollider::CollisionResult>* pResults);
 
+	virtual void ImguiUpdate(){}
+	virtual void OnHit() {} 
+
+	ObjectType	GetObjType()const { return m_objType; }
+
 protected:
 
 	void Release() {}
@@ -97,5 +105,5 @@ protected:
 	std::unique_ptr<KdDebugWireFrame> m_pDebugWire = nullptr;
 
 	//オブジェクトのタイプ
-	ObjectType m_objType;
+	ObjectType m_objType = ObjectType::None;
 };
